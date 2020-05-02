@@ -1,0 +1,6 @@
+
+*.xpl
+*.o
+
+SDK
+XPython/mac/main_*
