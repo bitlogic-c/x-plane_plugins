@@ -170,7 +170,7 @@ class windowInfo{
   XPLMHandleMouseWheel_f handleMouseWheelFunc;
 #endif
   void *refcon;
-#if defined(XPLM300)
+#if defined(XPLM301)
   int decorateAsFloatingWindow, layer; 
   XPLMHandleMouseClick_f    handleRightClickFunc;
 #endif
@@ -235,7 +235,7 @@ windowInfo::windowInfo(int size,
     XPLMHandleMouseWheel_f wheelFunc,
 #endif
     void *rfc
-#if defined(XPLM300)
+#if defined(XPLM301)
     ,int dFW, int lyr, 
     XPLMHandleMouseClick_f rightClickFunc
 #endif
@@ -250,7 +250,7 @@ windowInfo::windowInfo(int size,
   handleMouseWheelFunc = wheelFunc;
 #endif
   refcon = rfc;
-#if defined(XPLM300)
+#if defined(XPLM301)
   decorateAsFloatingWindow = dFW; layer = lyr;
   handleRightClickFunc = rightClickFunc;
 #endif
@@ -319,12 +319,12 @@ XPLMWindowID XPLMCreateWindowEx(XPLMCreateWindow_t *inParams)
     inParams->right, inParams->bottom, inParams->visible, inParams->drawWindowFunc,
     inParams->handleMouseClickFunc, inParams->handleKeyFunc, inParams->handleCursorFunc,
     inParams->handleMouseWheelFunc, inParams->refcon
-  #if defined(XPLM300)
+  #if defined(XPLM301)
     ,inParams->decorateAsFloatingWindow, inParams->layer, inParams->handleRightClickFunc
   #endif
   );
   windowInfoList.insert(std::pair<void *, windowInfo *>(wi->getID(), wi));
-  #if defined(XPLM300)
+  #if defined(XPLM301)
   int0 = inParams->decorateAsFloatingWindow;
   int1 = inParams->layer;
   #endif

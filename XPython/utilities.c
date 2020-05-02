@@ -749,7 +749,9 @@ PyInit_XPLMUtilities(void)
     PyModule_AddIntConstant(mod, "xplm_Language_Russian", xplm_Language_Russian);
     PyModule_AddIntConstant(mod, "xplm_Language_Greek", xplm_Language_Greek);
     PyModule_AddIntConstant(mod, "xplm_Language_Japanese", xplm_Language_Japanese);
+    #if defined(XPLM300)
     PyModule_AddIntConstant(mod, "xplm_Language_Chinese", xplm_Language_Chinese);
+    #endif
 
     /*
      * XPLMDataFileType

@@ -3,9 +3,10 @@
 PLUGIN_PATH="Resources/plugins/XPythonRevival"
 PY_CFLAGS = $(shell python3-config --cflags)
 PY_LDFLAGS = $(shell python3-config --ldflags)
-CPPFLAGS += -I../SDK/CHeaders -I../SDK/CHeaders/XPLM -I../SDK/CHeaders/Widgets
+CPPFLAGS += -I../../SDK/CHeaders -I../../SDK/CHeaders/XPLM -I../../SDK/CHeaders/Widgets
 
-all : main_200 main_210 main_300 main_301
+# all : main_200 main_210 main_300 main_301
+all : main_200 main_210 main_301
 
 ifeq ($(TARGET), Linux)
 LDFLAGS += -Wl,--export-dynamic
@@ -33,7 +34,7 @@ CFLAGS += -m32
 endif
 
 ifeq ($(TARGET), Darwin)
-CXXFLAGS += -arch i386 -arch x86_64
+CXXFLAGS += -arch x86_64
 CPPFLAGS += -DIBM=0 -DAPL=1 -DLIN=0
 all : mac.xpl
 test : darwin
@@ -47,7 +48,7 @@ endif
 
 COV_FLAGS += 
 LDFLAGS+= -g -ldl
-CFLAGS+=-Wall -Wextra -g
+CFLAGS+=-Wall -Wextra -g -DXPLM_DEPRECATED
 
 32bit:
 	cd 32 && $(MAKE)
